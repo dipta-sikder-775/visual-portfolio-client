@@ -18,7 +18,15 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* absolute import path */
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@redux/*": ["redux/*"],
+      "@ts/*": ["ts/*"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

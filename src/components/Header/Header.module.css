@@ -1,0 +1,55 @@
+/* Styles for the top bar */
+.top-bar {
+  /* Styles for the top bar row */
+  .top-bar-row {
+    padding: 16px 28px;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 6px;
+
+    /* Styles for the select/deselect all parent container */
+    .select-deselect-all-parent {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      /* Styles for the select/deselect all checkbox */
+      .select-deselect-all-checkbox {
+        width: 18px;
+        height: 18px;
+      }
+
+      /* Styles for the select/deselect all checkbox label */
+      .select-deselect-all-checkbox-label {
+        font-weight: 600;
+      }
+    }
+
+    /* Styles for the "Delete Files" text */
+    .delete-files {
+      padding: 2px 6px;
+      color: #ed4734;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+
+      /* Hover styles for "Delete Files" */
+      &:hover {
+        border-radius: 16px;
+        background-color: #00000010;
+      }
+    }
+
+    /* Styles for the top bar title */
+    .top-bar-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  /* Styles for the top bar horizontal separator */
+  .top-bar-hr {
+    width: 100%;
+    border-top: 2px solid #e8e8ea;
+  }
+}

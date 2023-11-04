@@ -1,6 +1,6 @@
 import Header from "@components/Header/Header";
 import Photo from "@components/Photo/Photo";
-import { DndContext, closestCenter, DragOverlay } from "@dnd-kit/core";
+import { DndContext, closestCenter, DragOverlay, DragStartEvent, DragEndEvent } from "@dnd-kit/core";
 
 // Handler for when a drag starts
 const handleDragStart = ({ active: { id } }: DragStartEvent) => {};
@@ -26,7 +26,6 @@ const App = () => {
             <div className="grid">
               <Photo index={0} url=""/>
             </div>
-
         </DndContext>
       </div>
     </div>

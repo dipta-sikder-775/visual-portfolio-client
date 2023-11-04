@@ -1,0 +1,13 @@
+/* Styles for the parent container */
+.parent {
+  position: relative;
+  transition: all ease-in-out 0.3s;
+
+  /* Show checkbox on hover */
+  &:hover {
+    .selectCheckbox {
+      display: block !important;
+    }
+  }
+
+}

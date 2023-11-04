@@ -1,9 +1,14 @@
 import Header from "@components/Header/Header";
-import {
-  DndContext,
-  closestCenter,
-  DragOverlay,
-} from "@dnd-kit/core";
+import Photo from "@components/Photo/Photo";
+import { DndContext, closestCenter, DragOverlay } from "@dnd-kit/core";
+
+// Handler for when a drag starts
+const handleDragStart = ({ active: { id } }: DragStartEvent) => {};
+
+// Handler for when a drag ends
+const handleDragEnd = ({ active, over }: DragEndEvent) => {};
+
+const handleDragCancel = () => {};
 
 const App = () => {
   return (
@@ -18,21 +23,10 @@ const App = () => {
           onDragCancel={handleDragCancel}
         >
           {/* Sortable context for rearranging items */}
-          <SortableContext items={items} strategy={rectSortingStrategy}>
-            {content}
-          </SortableContext>
+            <div className="grid">
+              <Photo index={0} url=""/>
+            </div>
 
-          {/* Drag overlay for the active dragging photo */}
-          <DragOverlay adjustScale={true}>
-            {activeId && (
-              <Photo
-                url={getAllPhotosRes?.[activeId]?.url ?? ""}
-                index={items.indexOf(activeId)}
-                isDragging
-                photoId={activeId}
-              />
-            )}
-          </DragOverlay>
         </DndContext>
       </div>
     </div>

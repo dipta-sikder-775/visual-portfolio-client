@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { apiSlice } from "@redux/apiSlice";
+import photosReducer from "./features/photos/photos.slice";
 
 export const store = configureStore({
   reducer: {
+    photos: photosReducer,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
 

@@ -10,4 +10,109 @@
     }
   }
 
+  /* Styles for the selection checkbox */
+  .selectCheckbox {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 18px;
+    height: 18px;
+    display: none;
+    z-index: 6;
+
+    /* Change cursor on hover */
+    &:hover {
+      cursor: pointer;
+    }
+
+    /* Display checkbox when checked */
+    &:checked {
+      display: block;
+    }
+  }
+
+  /* Styles for screen reader only content */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Styles for the image wrapper */
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #d5d7da;
+    overflow: hidden;
+
+    /* Styles for the photo */
+    .photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+/* Cursor style for dragging */
+.cursor-move {
+  cursor: move;
+}
+
+/* Styles for transform origin */
+.transform-origin {
+  transform-origin: 0 0;
+}
+
+/* Styles for featured photos */
+.feature-photo {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+}
+
+/* Overlay styles for the parent container */
+.overlay {
+  &::after {
+    max-height: 0;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+    transform: rotate(180deg);
+    background-color: #00000050;
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+  }
+
+  /* Show overlay on hover */
+  &:hover {
+    &::after {
+      max-height: 100vh;
+    }
+  }
+}
+
+/* Styles for selected photo overlay */
+.selected-overlay {
+  &::after {
+    max-height: 100vh;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+    transform: rotate(180deg);
+    background-color: #00000030;
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+  }
 }

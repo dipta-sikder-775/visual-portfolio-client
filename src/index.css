@@ -14,3 +14,64 @@
   grid-gap: 16px;
   padding: 28px;
 }
+
+@media only screen and (max-width: 500px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Container styles */
+.container {
+  background-color: #edf2f7;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 50px 10px;
+}
+
+@media only screen and (max-width: 680px) {
+  .container {
+    background-color: #edf2f7;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+}
+
+/* Card styles */
+.card {
+  background: white;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 992px;
+}
+
+@media only screen and (max-width: 680px) {
+  .card {
+    max-width: 100% !important;
+  }
+}
+
+/* Button styles */
+.btn {
+  border: none;
+  background-color: transparent;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: all ease-in-out 0.3s;
+}

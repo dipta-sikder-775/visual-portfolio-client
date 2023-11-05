@@ -1,4 +1,5 @@
 import Header from "@components/Header/Header";
+import ImageInput from "@components/ImageInput/ImageInput";
 import Photo from "@components/Photo/Photo";
 import { DndContext, closestCenter, DragOverlay, DragStartEvent, DragEndEvent } from "@dnd-kit/core";
 import { useGetAllPhotosQuery } from "@redux/features/photos/photos.api";

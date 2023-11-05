@@ -25,6 +25,35 @@ const App = () => {
     if (getAllPhotosRes) setItems(Object.keys(getAllPhotosRes ?? {}) ?? []);
   }, [getAllPhotosRes]);
 
+  let content: React.ReactNode = null;
+
+  if (!isError && !getAllPhotosRes && isLoading && !error) {
+    content = <Loading />;
+  }
+
+  if (isError && !getAllPhotosRes && !isLoading && error) {
+    content = <Error />;
+  }
+
+  if (!isError && getAllPhotosRes && !isLoading && !error) {
+    content = (
+      <div className="grid">
+        {/* Mapping and rendering sorted photos */}
+        {items.map((id, index) => (
+          <SortablePhoto
+            key={id}
+            id={id}
+            url={getAllPhotosRes?.[id]?.url ?? ""}
+            index={index}
+          />
+        ))}
+
+        {/* Input component for adding new photos */}
+        <ImageInput />
+      </div>
+    );
+  }
+
   return (
     <div>
       <Header />
@@ -38,7 +67,7 @@ const App = () => {
         >
           {/* Sortable context for rearranging items */}
             <div className="grid">
-              <Photo index={0} url=""/>
+              {content}
             </div>
         </DndContext>
       </div>

@@ -1,15 +1,57 @@
+import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import styles from "./Header.module.css";
+import {
+  removeSelected,
+  selectPhotos,
+} from "@redux/features/photos/photos.slice";
+import { toast } from "react-hot-toast";
+import {
+  useDeletePhotosMutation,
+  useLazyGetAllPhotosQuery,
+} from "@redux/features/photos/photos.api";
+import { IDeletePhotosArgs } from "@ts/photos";
 
 const Header = () => {
+  // Initialize hooks, queries, and dispatch
+  const [getAllPhotos] = useLazyGetAllPhotosQuery();
+  const [deletePhotos] = useDeletePhotosMutation();
+  const dispatch = useAppDispatch();
+  const { selectedPhotos } = useAppSelector(selectPhotos);
+
   // Function to delete selected photos
   const deleteFiles = async () => {
+    try {
+      toast.loading("Executing delete request...", { id: "deletePhotos" });
+      const allPhotos = await getAllPhotos().unwrap();
+      let clonedAllPhotos: IDeletePhotosArgs | undefined;
 
+      if (allPhotos) {
+        clonedAllPhotos = structuredClone(allPhotos);
+
+        for (const photoId of selectedPhotos) {
+          if (photoId in clonedAllPhotos) {
+            delete clonedAllPhotos[photoId];
+          }
+        }
+      }
+
+      await deletePhotos(clonedAllPhotos as IDeletePhotosArgs).unwrap();
+      toast.success("Successfully deleted selected photos", {
+        id: "deletePhotos",
+      });
+      dispatch(removeSelected());
+    } catch (error) {
+      toast.error("An Error Occurred! Can't delete selected photos", {
+        id: "deletePhotos",
+      });
+      console.log("delete photos error: ", error);
+    }
   };
 
   return (
     <header className={styles["top-bar"]}>
       <div className={styles["top-bar-row"]}>
-        {[].length ? (
+        {selectedPhotos.length ? (
           <>
             <div className={styles["select-deselect-all-parent"]}>
               {/* Checkbox to select/deselect all photos */}
@@ -19,8 +61,9 @@ const Header = () => {
                 name="selectDeselectAll"
                 id="selectDeselectAll"
                 title="Remove all selected"
-                checked={!![].length}
+                checked={!!selectedPhotos.length}
                 onChange={() => {
+                  dispatch(removeSelected());
                 }}
               />
 
@@ -29,8 +72,8 @@ const Header = () => {
                 htmlFor="selectDeselectAll"
                 title="Remove all selected"
               >
-                {[]?.length}{" "}
-                {[]?.length >= 2 ? "Files" : "File"} Selected
+                {selectedPhotos?.length}{" "}
+                {selectedPhotos?.length >= 2 ? "Files" : "File"} Selected
               </label>
             </div>
 

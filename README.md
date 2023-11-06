@@ -1,27 +1,83 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Responsive React Image Gallery
 
-Currently, two official plugins are available:
+A responsive image gallery built using React.js, Typescript, Redux Toolkit, RTK Query & CSS Module with features like reordering, deleting multiple images, and setting a feature image. This gallery offers a visually appealing and seamless user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
 
-## Expanding the ESLint configuration
+- [Demo](#demo)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Built With](#built-with)
+- [Contributing](#contributing)
+- [License](#license)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Demo
 
-- Configure the top-level `parserOptions` property like this:
+You can access a live demo of this image gallery [here](https://visual-portfolio-client.vercel.app/).
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+**Note:** The provided live URL should be inserted here.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Features
+
+### Gallery Layout
+
+- The gallery features a responsive grid layout.
+- One image is highlighted as the feature image, which is visually distinct from the others.
+
+### Sorting
+
+- Enables reordering images within the gallery.
+- Implemented drag-and-drop functionality for easy image sorting.
+
+### Deleting Multiple Images
+
+- Allows users to select and delete multiple images.
+- Provides visual indication of selected images for better user experience.
+
+### Setting Feature Image
+
+- Feature image is determined by the first image (from left to right).
+- The feature image is visually distinct.
+
+### User Experience
+
+- Designed for a smooth and responsive user experience.
+- Includes transitions and animations for a polished look and feel.
+
+## Getting Started
+
+These instructions will help you set up the project on your local machine.
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/dipta-sikder-775/visual-portfolio-client.git
+   cd visual-portfolio-client
+
+2. **Install dependencies and run code**:
+
+   ```bash
+   pnpm install
+   code .
+   add necessary environment variables
+   pnpm run dev
+
+3. **Show dev server output**
+   Open your web browser and visit http://localhost:5173 to view the gallery.
+
+
+## Usage
+- Utilize the drag-and-drop feature to reorder images in the gallery.
+- To delete multiple images:
+- Select the images you wish to delete.
+- Click the "Delete" button.
+- The first image (from left to right) is automatically set as the featured image.
+
+## Contact
+If you have questions or require further assistance, please contact [Dipta Sikder] at [diptasikder775@gmail.com].
+
+Thank you for exploring the React Image Gallery project!
+
+Enjoy using the gallery and happy coding!

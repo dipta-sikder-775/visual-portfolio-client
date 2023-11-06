@@ -17,8 +17,6 @@ A responsive image gallery built using React.js, Typescript, Redux Toolkit, RTK 
 
 You can access a live demo of this image gallery [here](https://visual-portfolio-client.vercel.app/).
 
-**Note:** The provided live URL should be inserted here.
-
 ## Features
 
 ### Gallery Layout
@@ -56,15 +54,17 @@ These instructions will help you set up the project on your local machine.
    git clone https://github.com/dipta-sikder-775/visual-portfolio-client.git
    cd visual-portfolio-client
 
-2. **Install dependencies and run code**:
+2. **Install dependencies**:
 
    ```bash
    pnpm install
    code .
-   add necessary environment variables
-   pnpm run dev
 
 3. **Show dev server output**
+   - add necessary environment variables (.env.example is provided)
+   ```bash
+   pnpm run dev
+
    Open your web browser and visit http://localhost:5173 to view the gallery.
 
 
@@ -76,7 +76,7 @@ These instructions will help you set up the project on your local machine.
 - The first image (from left to right) is automatically set as the featured image.
 
 ## Contact
-If you have questions or require further assistance, please contact [Dipta Sikder] at [diptasikder775@gmail.com].
+If you have questions or require further assistance, please contact Dipta Sikder at diptasikder775@gmail.com.
 
 Thank you for exploring the React Image Gallery project!
 
